@@ -220,7 +220,7 @@
             //TODO 图片连接
             var info_image = $("<img class='shadow' style='width: 100px;'>").attr("src", "../../public/images/" + book.cover);
             var info_bookName = ($("<h3 id='bookName' data-toggle='tooltip'" +
-                " data-placement='left' title='点击查看详情'>" + book.name + "</h3>")
+                " data-placement='left' title='点击查看详情'>" + book.name.substring(0,9) + "</h3>")
                 .attr({
                     bookId: book.bookid, name: book.name, intro: book.intro, author: book.author
                     , price: book.price, cover: book.cover, inventory: book.inventory
