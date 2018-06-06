@@ -1,3 +1,4 @@
 /.idea/*
 /target/*
 /out/*
+out/artifacts/Shopping_Web_exploded/WEB-INF/views/home.jsp
