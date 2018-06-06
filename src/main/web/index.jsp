@@ -63,7 +63,7 @@
 
 <div class="container">
     <div class="jumbotron">
-        <img src="public/images/18001.jpg" alt="" class="img-circle" style="width: 100px;height: 100px">
+        <img src="public/images/logo.jpg" alt="" class="img-circle" style="width: 100px;height: 100px">
         <h1>Welcome to BookStore!</h1>
         <p>请先登录</p>
         <p>

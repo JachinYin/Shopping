@@ -25,13 +25,28 @@
     %>
 
     <style>
-        .shadow{
-            box-shadow: 5px 5px 5px lightgrey;
+        .left {
+            float: left;
+            position: fixed;
         }
-        .panel-body{
-            height:42%;
+
+        .right {
+            float: right;
         }
-        .panel-body:hover{
+
+        #storeName:hover{
+            color: lightgray;
+        }
+
+        .shadow {
+            box-shadow: 0 0 5px lightgrey;
+        }
+
+        .panel-body {
+            height: 42%;
+        }
+
+        .panel-body:hover {
             box-shadow: 0 0 15px lightgrey;
         }
     </style>
@@ -44,7 +59,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="bookModalName"></h4>
             </div>
             <div class="modal-body" id="bookModalBody">
@@ -61,12 +77,14 @@
 <div class="navbar navbar-duomi navbar-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar navbar-duomi navbar-top navbar-header navbar-fixed-top">
-            <a class="navbar-brand" href="${App_Path}" id="logo">
-                BootStore
+            <p style="float: left;">&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+            <img src="../../public/images/logo.jpg" width="50" class="img-circle" style="float: left;">
+            <a class="navbar-brand" href="${App_Path}" id="storeName">
+                BootStore&nbsp&nbsp&nbsp&nbsp&nbsp
             </a>
-            <form class="navbar-form navbar-left">
+            <form class="navbar-form navbar-left" style="float: right">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="搜书名">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -76,108 +94,112 @@
 
 <div class="container-fluid ">
     <div class="row">
-        <div class="col-md-2">
-            <ul id="main-nav" class="nav nav-tabs nav-stacked">
-                <li>
-                    <a href="${App_Path}">
-                        <i class="glyphicon glyphicon-th-large"></i>
-                        首页
-                    </a>
-                </li>
-                <li>
-                    <a href="#bookchoice" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-book"></i>
-                        书籍
-                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                    </a>
-                    <ul id="bookchoice" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                        <li><a href="books/1" class="kind">
-                            <i class="glyphicon glyphicon-user"></i>类别1</a></li>
-                        <li><a href="books/2" class="kind">
-                            <i class="glyphicon glyphicon-th-list"></i>类别2</a></li>
-                        <li><a href="books/3" class="kind">
-                            <i class="glyphicon glyphicon-asterisk"></i>类别3</a></li>
-                        <li><a href="books/4" class="kind">
-                            <i class="glyphicon glyphicon-edit"></i>类别4</a></li>
-                        <li><a href="books/5" class="kind">
-                            <i class="glyphicon glyphicon-eye-open"></i>类别5</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a id="toCart" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                        购物车
-                    </a>
-                </li>
-                <li>
-                    <a href="#orderquery"  class="nav-header collapsed" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-list-alt"></i>
-                        查看订单
-                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        <span class="label label-warning pull-right">5</span>
-                    </a>
-                        <ul id="orderquery" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                            <li><a href="#"><i class="glyphicon glyphicon-user"></i>未完成订单</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>订单历史</a></li>
+        <table>
+            <tr>
+                <td>
+                    <div class="col-md-2 left">
+                        <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                            <li>
+                                <a href="${App_Path}">
+                                    <i class="glyphicon glyphicon-th-large"></i>
+                                    &nbsp首页
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#bookchoice" class="nav-header collapsed" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-book"></i>
+                                    &nbsp书籍
+                                    <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul id="bookchoice" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                                    <li><a href="books/1" class="kind">
+                                        <i class="glyphicon glyphicon-tag"></i>&nbspGame</a></li>
+                                    <li><a href="books/2" class="kind">
+                                        <i class="glyphicon glyphicon-tag"></i>&nbsp哲学</a></li>
+                                    <li><a href="books/3" class="kind">
+                                        <i class="glyphicon glyphicon-tag"></i>&nbsp诗歌</a></li>
+                                    <li><a href="books/4" class="kind">
+                                        <i class="glyphicon glyphicon-tag"></i>&nbsp文学</a></li>
+                                    <li><a href="books/5" class="kind">
+                                        <i class="glyphicon glyphicon-tag"></i>&nbsp科幻</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a id="toCart" class="nav-header collapsed" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                                    &nbsp购物车
+                                </a>
+                            </li>
+                            <li>
+                                <a id="toOrder" class="nav-header collapsed" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-list-alt"></i>
+                                    &nbsp查看订单
+                                    <span class="label label-warning pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#userinfo" class="nav-header collapsed" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    &nbsp个人信息
+                                    <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul id="userinfo" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                                    <li><a id="getUserInfo"><i class="glyphicon glyphicon-eye-open"></i> 查看信息</a></li>
+                                    <li><a id="editUserInfo"><i class="glyphicon glyphicon-edit"></i> 修改信息</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="test">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                    图表统计
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-fire"></i>
+                                    关于系统
+                                </a>
+                            </li>
                         </ul>
-                </li>
-                <li>
-                    <a href="#userinfo"  class="nav-header collapsed" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-user"></i>
-                        &nbsp个人信息
-                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                    </a>
-                    <ul id="userinfo" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                        <li><a id="getUserInfo"><i class="glyphicon glyphicon-user"></i> 查看信息</a></li>
-                        <li><a id="editUserInfo"><i class="glyphicon glyphicon-cog"></i> 修改信息</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="test">
-                        <i class="glyphicon glyphicon-calendar"></i>
-                        图表统计
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-fire"></i>
-                        关于系统
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-10">
-            <div class="container" id="bookList"></div>
-            <hr>
-            <div class="container">
-                <div class="col-md-6" id="nav-pageInfo">
+                    </div>
+                </td>
+                <td>
+
+                </td>
+                <div class="col-md-10 right">
+                    <div class="container" id="bookList"></div>
+                    <hr>
+                    <div class="container">
+                        <div class="col-md-6" id="nav-pageInfo">
+                        </div>
+                        <div class="col-md-6">
+
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination" id="nav-page">
+
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6" >
-
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination" id="nav-page">
-
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
-        </div>
+            </tr>
+        </table>
     </div>
 </div>
 
 <script type="text/javascript">
     $(function () {
-        toPage(1,"1");
+        toPage(1, "1");
     });
 
-    function toPage(pn,kind) {
-        $("#nav-page").attr("kind",kind);
+    function toPage(pn, kind) {
+        $("#nav-page").attr("kind", kind);
         $.ajax({
-            url:"books/"+kind,
-            data:"pn="+pn,
-            type:"GET",
-            success:function (result) {
+            url: "books/" + kind,
+            data: "pn=" + pn,
+            type: "GET",
+            success: function (result) {
                 build_books(result);
                 build_page_info(result);
                 build_page_nvag(result);
@@ -191,21 +213,23 @@
         var books = result.extendInfo.pageInfo.list;
 
         // 页面显示的书籍
-        $.each(books,function (index, book) {
+        $.each(books, function (index, book) {
 
             var Panbody = $("<div class='panel-body'></div>");
 
             //TODO 图片连接
-            var info_image = $("<img style='width: 100px;'>").attr("src","../../public/images/"+book.cover);
+            var info_image = $("<img class='shadow' style='width: 100px;'>").attr("src", "../../public/images/" + book.cover);
             var info_bookName = ($("<h3 id='bookName' data-toggle='tooltip'" +
-                " data-placement='left' title='点击查看详情'>"+ book.name +"</h3>")
-                .attr({ bookId: book.bookid, name: book.name, intro:book.intro,author:book.author
-                    ,price:book.price,cover:book.cover,inventory:book.inventory}));
-            var info_intro = $("<p>"+ book.intro.substring(0,27) +"...</p>");
+                " data-placement='left' title='点击查看详情'>" + book.name + "</h3>")
+                .attr({
+                    bookId: book.bookid, name: book.name, intro: book.intro, author: book.author
+                    , price: book.price, cover: book.cover, inventory: book.inventory
+                }));
+            var info_intro = $("<p>" + book.intro.substring(0, 27) + "...</p>");
             // 加入购物车的按钮
             var button_add = $("<a class='addToCar btn btn-primary' " +
                 "role='button'>加入购物车</a>")
-                .attr("bookid",book.bookid);
+                .attr("bookid", book.bookid);
             var info_price = $("<h5 class='text-warning' style='float:right;'>价格：￥"
                 + book.price + "&nbsp&nbsp&nbsp</h5>");
 
@@ -231,12 +255,12 @@
         $(".addToCar").click(function () {
             var bookId = $(this).attr("bookid");
             $.ajax({
-                url:"cart/"+bookId,
-                type:"POST",
-                success:function (result) {
-                    if(result.statusCode == 100){
+                url: "cart/" + bookId,
+                type: "POST",
+                success: function (result) {
+                    if (result.statusCode == 100) {
                         alert(result.info);
-                    }else{
+                    } else {
                         alert(result.info);
                     }
                 }
@@ -244,33 +268,33 @@
             });
         });
 
-        $(document).on("click","h3",function () {
+        $(document).on("click", "h3", function () {
 
             bookDetail($(this));
 
             $("#bookDetail").modal({
-                backdrop:"static"
+                backdrop: "static"
             })
         });
-        $(document).on("mouseover mouseout","h3",function (e) {
-            if(e.type=="mouseover")
-                $(this).attr("style","color:darkgoldenrod");
-            if(e.type=="mouseout")
-                $(this).attr("style","");
+        $(document).on("mouseover mouseout", "h3", function (e) {
+            if (e.type == "mouseover")
+                $(this).attr("style", "color:darkgoldenrod");
+            if (e.type == "mouseout")
+                $(this).attr("style", "");
         });
 
         // 模态框的详情页
         function bookDetail(h3) {
-            var image_modal = "../../public/images/"+h3.attr("cover");
+            var image_modal = "../../public/images/" + h3.attr("cover");
             $("#bookModalName").empty();
             $("#bookModalBody").empty();
-            $("#bookModalName").append("<span>"+h3.attr("name")+"</span>");
+            $("#bookModalName").append("<span>" + h3.attr("name") + "</span>");
             $("#bookModalBody")
-                .append($("<img style='width: 150px;'>").attr("src",image_modal))
-                .append($("<p class='text-muted'>作者："+ h3.attr("author") +"</p>"))
-                .append($("<p class='text-info'>简介："+ h3.attr("intro") +"</p>"))
-                .append($("<p class='text-warning'>价格："+ h3.attr("price") + " &nbsp &nbsp 库存：" + h3.attr("inventory") +"</p>"));
-            $("#modalAddToCartBtn").attr("bookid",h3.attr("bookid"));
+                .append($("<img class='shadow' style='width: 150px;'>").attr("src", image_modal))
+                .append($("<p class='text-muted'>作者：" + h3.attr("author") + "</p>"))
+                .append($("<p class='text-info'>简介：" + h3.attr("intro") + "</p>"))
+                .append($("<p class='text-warning'>价格：" + h3.attr("price") + " &nbsp &nbsp 库存：" + h3.attr("inventory") + "</p>"));
+            $("#modalAddToCartBtn").attr("bookid", h3.attr("bookid"));
         }
 
     }
@@ -299,13 +323,13 @@
         if (!temp.hasPreviousPage) {
             firstPageNode.addClass("disabled");
             prePageNode.addClass("disabled");
-        }else {
+        } else {
             // 为节点添加点击事件
             firstPageNode.click(function () {
-                toPage(1,ulNode.attr("kind"));
+                toPage(1, ulNode.attr("kind"));
             });
             prePageNode.click(function () {
-                toPage(temp.prePage,ulNode.attr("kind"));
+                toPage(temp.prePage, ulNode.attr("kind"));
             });
         }
 
@@ -314,7 +338,7 @@
             var numNode = $("<li></li>").append($("<a></a>").append(item));
             if (temp.pageNum == item) numNode.addClass("active");
             numNode.click(function () {
-                toPage(item,ulNode.attr("kind"));
+                toPage(item, ulNode.attr("kind"));
             });
             ulNode.append(numNode);
         });
@@ -324,13 +348,13 @@
         if (!temp.hasNextPage) {
             nextPageNode.addClass("disabled");
             lastPageNode.addClass("disabled");
-        }else {
+        } else {
             // 为节点添加点击事件
             lastPageNode.click(function () {
-                toPage(temp.pages,ulNode.attr("kind"));
+                toPage(temp.pages, ulNode.attr("kind"));
             });
             nextPageNode.click(function () {
-                toPage(temp.nextPage,ulNode.attr("kind"));
+                toPage(temp.nextPage, ulNode.attr("kind"));
             });
         }
 
@@ -339,19 +363,20 @@
 
     //分类
     $(".kind").click(function () {
-        var kind = $(this).attr("href").substring(6,7);
-        toPage(1,kind);
+        var kind = $(this).attr("href").substring(6, 7);
+        toPage(1, kind);
         return false;
     });
 
     // 查看购物车
     $("#toCart").click(function () {
         toCart();
+
         function toCart() {
             $.ajax({
-                url:"cart",
-                type:"GET",
-                success:function (result) {
+                url: "cart",
+                type: "GET",
+                success: function (result) {
                     buildCart(result);
                 }
             });
@@ -385,9 +410,9 @@
                 });
                 $("#btn_delete_all").click(function () {
                     $.ajax({
-                        url:"cart",
-                        type:"DELETE",
-                        success:function (result) {
+                        url: "cart",
+                        type: "DELETE",
+                        success: function (result) {
                             toCart();
                         }
                     });
@@ -397,77 +422,77 @@
             }
             // 购物车表格
             {
-            var rowTab = $("<div class='row'></div>")
-                .append($("<div class='col-md-6'></div>"));
+                var rowTab = $("<div class='row'></div>")
+                    .append($("<div class='col-md-6'></div>"));
 
-            var thubEle = $("<div class='thumbnail'></div>").append("<br>");
+                var thubEle = $("<div class='thumbnail'></div>").append("<br>");
 
-            var tableEle = $("<table class='table table-hover table-striped'></table>");
-            var headEle = $("<tr><th>#</th><th>cover</th><th>name</th>" +
-                "<th>count</th><th>price</th><th>total price</th>" +
-                "<th>Operation</th></tr>");
-            tableEle.append(headEle);
-            // 显示购物车表格
-            $.each(carts,function (index,item) {
-                var trEle = $("<tr></tr>");
-                var imgEle = $("<td></td>").append($("<img style='width: 30px;height: 30px'>")
-                    .attr("src","../../public/images/"+item.book.cover));
-                var nameEle = $("<td></td>").append(item.book.name);
-                var countEle = $("<td></td>").append(item.count);
-                var priveEle = $("<td>￥</td>").append(item.book.price);
-                var totalPriveEle = $("<td>￥</td>").append(item.price);
-                var btn_edit = $("<button type='button' class='btn btn-info'>" +
-                    "修改数量</button>");
-                var btn_del = $(" <button type='button' class='btn btn-danger'>" +
-                    "删除</button>");
+                var tableEle = $("<table class='table table-hover table-striped'></table>");
+                var headEle = $("<tr><th>#</th><th>cover</th><th>name</th>" +
+                    "<th>count</th><th>price</th><th>total price</th>" +
+                    "<th>Operation</th></tr>");
+                tableEle.append(headEle);
+                // 显示购物车表格
+                $.each(carts, function (index, item) {
+                    var trEle = $("<tr></tr>");
+                    var imgEle = $("<td></td>").append($("<img style='width: 30px;height: 30px'>")
+                        .attr("src", "../../public/images/" + item.book.cover));
+                    var nameEle = $("<td></td>").append(item.book.name);
+                    var countEle = $("<td></td>").append(item.count);
+                    var priveEle = $("<td>￥</td>").append(item.book.price);
+                    var totalPriveEle = $("<td>￥</td>").append(item.price);
+                    var btn_edit = $("<button type='button' class='btn btn-info'>" +
+                        "修改数量</button>");
+                    var btn_del = $(" <button type='button' class='btn btn-danger'>" +
+                        "删除</button>");
 
-                // 修改数量事件
-                btn_edit.click(function () {
-                    var str_count = prompt("请输入数量",item.count);
-                    var reg = /^[0-9]*$/;
-                    if(reg.test(str_count)){
-                       $.ajax({
-                           url:"cart",
-                           data:"cartid="+item.cartid+
-                                "&count="+str_count+
-                                "&bookid="+item.book.bookid,
-                           type:"PUT",
-                           success:function (result) {
-                               toCart();
-                           }
-                       });
-                    }else{
-                        alert("请输入正确整数！");
-                        alert("cartid="+item.cartid+
-                            "&count="+str_count+
-                            "&bookid="+item.bookId);
-                    }
-                });
-                // 删除单项事件
-                btn_del.click(function () {
-                    alert(item.cartid);
-                    $.ajax({
-                        url:"cart/"+item.cartid,
-                        type:"DELETE",
-                        success:function (result) {
-                            toCart();
+                    // 修改数量事件
+                    btn_edit.click(function () {
+                        var str_count = prompt("请输入数量", item.count);
+                        var reg = /^[0-9]*$/;
+                        if (reg.test(str_count)) {
+                            $.ajax({
+                                url: "cart",
+                                data: "cartid=" + item.cartid +
+                                "&count=" + str_count +
+                                "&bookid=" + item.book.bookid,
+                                type: "PUT",
+                                success: function (result) {
+                                    toCart();
+                                }
+                            });
+                        } else {
+                            alert("请输入正确整数！");
+                            alert("cartid=" + item.cartid +
+                                "&count=" + str_count +
+                                "&bookid=" + item.bookId);
                         }
                     });
+                    // 删除单项事件
+                    btn_del.click(function () {
+                        alert(item.cartid);
+                        $.ajax({
+                            url: "cart/" + item.cartid,
+                            type: "DELETE",
+                            success: function (result) {
+                                toCart();
+                            }
+                        });
+                    });
+
+                    trEle.append(index + 1).append(imgEle).append(nameEle)
+                        .append(countEle).append(priveEle).append(totalPriveEle)
+                        .append(btn_edit).append(btn_del);
+
+                    tableEle.append(trEle);
                 });
 
-                trEle.append(index+1).append(imgEle).append(nameEle)
-                    .append(countEle).append(priveEle).append(totalPriveEle)
-                    .append(btn_edit).append(btn_del);
+                thubEle.append(tableEle);
+                thubEle.appendTo(rowTab);
 
-                tableEle.append(trEle);
-            });
+                $("#bookList").append(rowTab);
 
-            thubEle.append(tableEle);
-            thubEle.appendTo(rowTab);
-
-            $("#bookList").append(rowTab);
-
-        }
+            }
 
         }
     });
@@ -475,15 +500,17 @@
     // 查看用户
     $("#getUserInfo").click(function () {
         toUser();
+
         function toUser() {
             $.ajax({
-                url:"user",
-                type:"GET",
-                success:function (result) {
+                url: "user",
+                type: "GET",
+                success: function (result) {
                     buildUser(result);
                 }
             });
         }
+
         function buildUser(result) {
             $("#bookList").empty();
             $("#nav-pageInfo").empty();
@@ -495,7 +522,7 @@
             {
                 var rowHeader = $("<div class='row'></div>")
                     .append($("<div class='col-md-6'></div>"))
-                    .append($("<h1></h1>").append(user.account+"的信息"));
+                    .append($("<h1></h1>").append(user.account + "的信息"));
                 $("#bookList").append(rowHeader);
             }
             // 用户界面显示
@@ -508,35 +535,35 @@
 
                 var formEle = $("<form class='form-horizontal'></form>");
                 var accountEle = $("<div class='form-group'></div>")
-                    // 标签
+                // 标签
                     .append($("<label class='col-sm-4 control-label'>账号:</label>"))
                     // 静态控件
                     .append($("<div class='col-sm-8'></div>")
                         .append($("<p class='form-control-static'></p>")
                             .append(user.account)));
                 var nameEle = $("<div class='form-group'></div>")
-                    // 标签
+                // 标签
                     .append($("<label class='col-sm-4 control-label'>姓名:</label>"))
                     // 静态控件
                     .append($("<div class='col-sm-8'></div>")
                         .append($("<p class='form-control-static'></p>")
                             .append(user.name)));
                 var phoneEle = $("<div class='form-group'></div>")
-                    // 标签
+                // 标签
                     .append($("<label class='col-sm-4 control-label'>手机:</label>"))
                     // 静态控件
                     .append($("<div class='col-sm-8'></div>")
                         .append($("<p class='form-control-static'></p>")
                             .append(user.phone)));
                 var genderEle = $("<div class='form-group'></div>")
-                    // 标签
+                // 标签
                     .append($("<label class='col-sm-4 control-label'>性别:</label>"))
                     // 静态控件
                     .append($("<div class='col-sm-8'></div>")
                         .append($("<p class='form-control-static'></p>")
                             .append(user.gender)));
                 var uidEle = $("<div class='form-group'></div>")
-                    // 标签
+                // 标签
                     .append($("<label class='col-sm-4 control-label'>UID:</label>"))
                     // 静态控件
                     .append($("<div class='col-sm-8'></div>")
@@ -560,15 +587,17 @@
     // 修改用户
     $("#editUserInfo").click(function () {
         editUser();
+
         function editUser() {
             $.ajax({
-                url:"user",
-                type:"GET",
-                success:function (result) {
+                url: "user",
+                type: "GET",
+                success: function (result) {
                     buildUser(result);
                 }
             });
         }
+
         function buildUser(result) {
             $("#bookList").empty();
             $("#nav-pageInfo").empty();
@@ -580,7 +609,7 @@
             {
                 var rowHeader = $("<div class='row'></div>")
                     .append($("<div class='col-md-6'></div>"))
-                    .append($("<h1></h1>").append(user.account+" 的信息"));
+                    .append($("<h1></h1>").append(user.account + " 的信息"));
                 $("#bookList").append(rowHeader);
             }
             // 用户界面显示
@@ -598,28 +627,28 @@
                     // 控件
                     .append($("<div class='col-sm-4'></div>")
                         .append($("<input type='text' class='form-control' name='account'>")
-                            .attr("value",user.account)));
+                            .attr("value", user.account)));
                 var nameEle = $("<div class='form-group'></div>")
                 // 标签
                     .append($("<label class='col-sm-4 control-label'>姓名:</label>"))
                     // 控件
                     .append($("<div class='col-sm-4'></div>")
                         .append($("<input type='text' class='form-control' name='name'>")
-                            .attr("value",user.name)));
+                            .attr("value", user.name)));
                 var phoneEle = $("<div class='form-group'></div>")
                 // 标签
                     .append($("<label class='col-sm-4 control-label'>手机:</label>"))
                     // 控件
                     .append($("<div class='col-sm-4'></div>")
                         .append($("<input type='text' class='form-control' name='phone'>")
-                            .attr("value",user.phone)));
+                            .attr("value", user.phone)));
 
                 var genderMale = $("<input type='radio' name='gender' value='男'>");
                 var genderFemale = $("<input type='radio' name='gender' value='女'>");
-                if("男" == user.gender){
-                    genderMale.attr("checked","checked");
-                }else{
-                    genderFemale.attr("checked","checked");
+                if ("男" == user.gender) {
+                    genderMale.attr("checked", "checked");
+                } else {
+                    genderFemale.attr("checked", "checked");
                 }
                 var genderEle = $("<div class='form-group'></div>")
                 // 标签
@@ -633,7 +662,7 @@
                             .append(genderFemale)
                             .append("女")));
                 var submit = $("<div class='form-group'></div>")
-                    // 控件
+                // 控件
                     .append($("<div class='col-sm-offset-4 col-sm-2'>")
                         .append($("<button id='editUserBtn' type='button' class='btn btn-info form-control'>保存</button>")));
 
@@ -650,13 +679,13 @@
 
         }
 
-        $(document).on("click","#editUserBtn",function () {
+        $(document).on("click", "#editUserBtn", function () {
             var info = $("#editUserForm").serialize();
             $.ajax({
-                url:"user",
-                data:info,
-                type:"PUT",
-                success:function (result) {
+                url: "user",
+                data: info,
+                type: "PUT",
+                success: function (result) {
                     editUser();
                 }
             });

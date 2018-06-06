@@ -38,12 +38,12 @@ public class BookController {
                 break;
             case 2:
                 PageHelper.startPage(pn,8);
-                List<Book> books2 = bookService.getBooks("Story");
+                List<Book> books2 = bookService.getBooks("哲学");
                 pageInfo = new PageInfo<>(books2,5);
                 break;
             case 3:
                 PageHelper.startPage(pn,8);
-                List<Book> books3 = bookService.getBooks("Science");
+                List<Book> books3 = bookService.getBooks("诗歌");
                 pageInfo = new PageInfo<>(books3,5);
                 break;
             case 4:
@@ -53,7 +53,7 @@ public class BookController {
                 break;
             case 5:
                 PageHelper.startPage(pn,8);
-                List<Book> books5 = bookService.getBooks("Tool");
+                List<Book> books5 = bookService.getBooks("科幻");
                 pageInfo = new PageInfo<>(books5,5);
                 break;
         }
