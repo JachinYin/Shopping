@@ -28,6 +28,12 @@
         .shadow{
             box-shadow: 5px 5px 5px lightgrey;
         }
+        .panel-body{
+            height:42%;
+        }
+        .panel-body:hover{
+            box-shadow: 0 0 15px lightgrey;
+        }
     </style>
 
 
@@ -189,20 +195,13 @@
 
             var Panbody = $("<div class='panel-body'></div>");
 
-            Panbody.mouseover(function () {
-                $(this).addClass("shadow");
-            });
-            Panbody.mouseout(function () {
-                $(this).removeClass("shadow");
-            });
-
             //TODO 图片连接
-            var info_image = $("<img style='width: 200px;height: 200px'>").attr("src","../../public/images/"+book.cover);
+            var info_image = $("<img style='width: 100px;'>").attr("src","../../public/images/"+book.cover);
             var info_bookName = ($("<h3 id='bookName' data-toggle='tooltip'" +
                 " data-placement='left' title='点击查看详情'>"+ book.name +"</h3>")
                 .attr({ bookId: book.bookid, name: book.name, intro:book.intro,author:book.author
                     ,price:book.price,cover:book.cover,inventory:book.inventory}));
-            var info_intro = $("<p>"+ book.intro.substring(0,18) +"...</p>");
+            var info_intro = $("<p>"+ book.intro.substring(0,27) +"...</p>");
             // 加入购物车的按钮
             var button_add = $("<a class='addToCar btn btn-primary' " +
                 "role='button'>加入购物车</a>")
@@ -260,12 +259,14 @@
                 $(this).attr("style","");
         });
 
+        // 模态框的详情页
         function bookDetail(h3) {
+            var image_modal = "../../public/images/"+h3.attr("cover");
             $("#bookModalName").empty();
             $("#bookModalBody").empty();
             $("#bookModalName").append("<span>"+h3.attr("name")+"</span>");
             $("#bookModalBody")
-                .append($("<img src='public/images/02.jpg' style='width: 200px;height: 200px'>"))
+                .append($("<img style='width: 150px;'>").attr("src",image_modal))
                 .append($("<p class='text-muted'>作者："+ h3.attr("author") +"</p>"))
                 .append($("<p class='text-info'>简介："+ h3.attr("intro") +"</p>"))
                 .append($("<p class='text-warning'>价格："+ h3.attr("price") + " &nbsp &nbsp 库存：" + h3.attr("inventory") +"</p>"));
