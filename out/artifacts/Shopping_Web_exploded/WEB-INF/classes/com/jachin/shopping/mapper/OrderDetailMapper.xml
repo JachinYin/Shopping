@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachin.shopping.mapper.OrderDetailMapper">
+  <resultMap id="BaseResultMap" type="com.jachin.shopping.po.OrderDetail">
+    <id column="orderDetailId" jdbcType="INTEGER" property="orderdetailid" />
+    <result column="orderId" jdbcType="INTEGER" property="orderid" />
+    <result column="bookId" jdbcType="INTEGER" property="bookid" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    orderDetailId, orderId, bookId, count, price
+  </sql>
+  <select id="selectByExample" parameterType="com.jachin.shopping.po.OrderDetailExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orderdetail
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orderdetail
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jachin.shopping.po.OrderDetailExample">
+    delete from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jachin.shopping.po.OrderDetail">
+    insert into orderdetail (orderDetailId, orderId, bookId, 
+      count, price)
+    values (#{orderdetailid,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{bookid,jdbcType=INTEGER}, 
+      #{count,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachin.shopping.po.OrderDetail">
+    insert into orderdetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderdetailid != null">
+        orderDetailId,
+      </if>
+      <if test="orderid != null">
+        orderId,
+      </if>
+      <if test="bookid != null">
+        bookId,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderdetailid != null">
+        #{orderdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="bookid != null">
+        #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jachin.shopping.po.OrderDetailExample" resultType="java.lang.Long">
+    select count(*) from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update orderdetail
+    <set>
+      <if test="record.orderdetailid != null">
+        orderDetailId = #{record.orderdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderid != null">
+        orderId = #{record.orderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.bookid != null">
+        bookId = #{record.bookid,jdbcType=INTEGER},
+      </if>
+      <if test="record.count != null">
+        count = #{record.count,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update orderdetail
+    set orderDetailId = #{record.orderdetailid,jdbcType=INTEGER},
+      orderId = #{record.orderid,jdbcType=INTEGER},
+      bookId = #{record.bookid,jdbcType=INTEGER},
+      count = #{record.count,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=DOUBLE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachin.shopping.po.OrderDetail">
+    update orderdetail
+    <set>
+      <if test="orderid != null">
+        orderId = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="bookid != null">
+        bookId = #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachin.shopping.po.OrderDetail">
+    update orderdetail
+    set orderId = #{orderid,jdbcType=INTEGER},
+      bookId = #{bookid,jdbcType=INTEGER},
+      count = #{count,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE}
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </update>
+</mapper>
